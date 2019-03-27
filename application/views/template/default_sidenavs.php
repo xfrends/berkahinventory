@@ -41,6 +41,12 @@
 									Merk
 								</a>
 							</li>
+							<li>
+								<a href="<?php echo base_url('product/index') ?>">
+									<i class="fas fa-user"></i>
+									Product
+								</a>
+							</li>
 						</ul>
 					</li>
 					<li>
