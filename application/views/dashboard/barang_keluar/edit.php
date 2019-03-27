@@ -14,15 +14,21 @@
         <div>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <label class="control-label">Keterangan<span class="required">*</span></label>
-            <input type="text" class="form-control" name="keterangan" value="<?php echo $records->keterangan ?>" required="required">
+            <input type="text" class="form-control" name="keterangan" value="<?php echo $records->keterangan_barang ?>" required="required">
         </div>
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Category<span class="required">*</span></label>
-            <div class="dropdown">
-                <?php echo form_dropdown('id', $category,$records->category_id, 'class="form-control" required="required"'); ?>
-            </div>
+        <label class="control-label">Category<span class="required">*</span></label>
+        <div class="dropdown">
+            <?php echo form_dropdown('category_id', $category,$records->category_id, 'class="form-control" required="required"'); ?>
         </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Merk<span class="required">*</span></label>
+        <div class="dropdown">
+            <?php echo form_dropdown('merk_id', $merk, $records->merk_id, 'class="form-control" required="required"'); ?>
+        </div>
+    </div>
     <div class="clearfix"></div>
     <div class="ln_solid"></div>
     <div class="form-group">
@@ -34,7 +40,7 @@
 <script>
     // To Validate Form
     $("#parsley-form").parsley().on('field:validated',function(){}).on('form:submit', function(){
-        var link = "<?php echo base_url('barang/update_barang_keluar/'.$records->id) ?>",
+        var link = "<?php echo base_url('barang/update_barang_keluar/'.$records->m_id) ?>",
             form_selector = "form[name='form_edit']";
 
         submitForm(null, form_selector, link);

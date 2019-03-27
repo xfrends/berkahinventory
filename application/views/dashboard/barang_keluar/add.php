@@ -23,6 +23,12 @@
                 <?php echo form_dropdown('category_id', $category,null, 'class="form-control" required="required"'); ?>
             </div>
         </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <label class="control-label">Merk<span class="required">*</span></label>
+            <div class="dropdown">
+                <?php echo form_dropdown('merk_id', $merk,null, 'class="form-control" required="required"'); ?>
+            </div>
+        </div>
     </div>
         <div class="clearfix"></div>
         <div class="ln_solid"></div>
