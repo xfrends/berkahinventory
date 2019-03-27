@@ -8,6 +8,7 @@
             <th>Supllier</th>
             <th>Keterangan</th>
             <th>Category </th>
+            <th>Merk </th>
             <th>Create at</th>
             <th>Update at</th>
             <th class="text-center no-order" width="100px"><?php echo lang('Action') ?></th>
@@ -22,8 +23,9 @@
             <td><?php echo $r->nama_barang ?></td>
             <td><?php echo $r->jumlah ?></td>
             <td><?php echo $r->supplier ?></td>
-            <td><?php echo $r->keterangan ?></td>
+            <td><?php echo $r->keterangan_barang ?></td>
             <td><?php echo $r->category_name ?></td>
+            <td><?php echo $r->nama_merk ?></td>
             <td><?php echo $r->barang_masuk_created ?></td>
             <td><?php echo $r->barang_masuk_updated_at ?></td>
             <td width="150px" class="text-center">

@@ -19,15 +19,21 @@
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <label class="control-label">Keterangan<span class="required">*</span></label>
-            <input type="text" class="form-control" name="keterangan" value="<?php echo $records->keterangan ?>" required="required">
+            <input type="text" class="form-control" name="keterangan" value="<?php echo $records->keterangan_barang ?>" required="required">
         </div>
         </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Category<span class="required">*</span></label>
-            <div class="dropdown">
-                <?php echo form_dropdown('id', $category,$records->category_id, 'class="form-control" required="required"'); ?>
-            </div>
+        <label class="control-label">Category<span class="required">*</span></label>
+        <div class="dropdown">
+            <?php echo form_dropdown('category_id', $category,$records->category_id, 'class="form-control" required="required"'); ?>
         </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Merk<span class="required">*</span></label>
+        <div class="dropdown">
+            <?php echo form_dropdown('merk_id', $merk,$records->merk_id, 'class="form-control" required="required"'); ?>
+        </div>
+    </div>
     <div class="clearfix"></div>
     <div class="ln_solid"></div>
     <div class="form-group">
