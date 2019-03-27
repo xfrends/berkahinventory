@@ -68,9 +68,11 @@ class M_barang extends CI_Model
         if(!empty($params[' created_at']))
             $this->db->like('created_at', $params['created_at']);
 
-        $this->db->select('b.id as m_id, b.name as nama_barang,c.name as category_name, stock_keluar, stock_masuk, b.created_at as barang_masuk_created, b.update_at as barang_masuk_updated_at, kode_barang, category_id');
+        $this->db->select('b.id as m_id, b.name as nama_barang,c.name as category_name, m.nama as nama_merk, stock_keluar, stock_masuk, b.created_at as barang_masuk_created, b.update_at as barang_masuk_updated_at, kode_barang, category_id, merk_id, product_id, p.nama as product_nama');
         $this->db->from('barang b');
         $this->db->join('category c','c.id= b.category_id');
+        $this->db->join('merk m','m.id=b.merk_id');
+        $this->db->join('product p','p.id=b.product_id');
         $query = $this->db->get();
 
         if(!empty($params['id']))
@@ -96,9 +98,10 @@ class M_barang extends CI_Model
         if(!empty($params[' created_at']))
             $this->db->like('created_at', $params['created_at']);
 
-        $this->db->select('m.id as m_id, m.name as nama_barang,c.name as category_name, jumlah , m.created_at as barang_masuk_created, m.update_at as barang_masuk_updated_at, kode_barang, category_id, supplier, keterangan');
+        $this->db->select('m.id as m_id, m.name as nama_barang,c.name as category_name, jumlah , m.created_at as barang_masuk_created, m.update_at as barang_masuk_updated_at, kode_barang, category_id, supplier, d.nama as nama_merk, m.keterangan as keterangan_barang, merk_id');
         $this->db->from('barang_masuk m');
         $this->db->join('category c','c.id= m.category_id');
+        $this->db->join('merk d','d.id=m.merk_id');
         $query = $this->db->get();
 
         if(!empty($params['id']))
@@ -124,9 +127,10 @@ class M_barang extends CI_Model
         if(!empty($params[' created_at']))
             $this->db->like('created_at', $params['created_at']);
 
-        $this->db->select('m.id as m_id, m.name as nama_barang,c.name as category_name, jumlah, keterangan, m.created_at as barang_masuk_created, m.update_at as barang_masuk_created_at, kode_barang, category_id');
+        $this->db->select('m.id as m_id, m.name as nama_barang,c.name as category_name, jumlah, m.created_at as barang_masuk_created, m.update_at as barang_masuk_created_at, kode_barang, category_id, d.nama as nama_merk, m.keterangan as keterangan_barang, merk_id');
         $this->db->from('barang_keluar m');
         $this->db->join('category c','c.id= m.category_id');
+        $this->db->join('merk d','d.id=m.merk_id');
         $query = $this->db->get();
 
         if(!empty($params['id']))

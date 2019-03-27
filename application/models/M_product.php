@@ -4,7 +4,7 @@
  * General Model Class
  * to provide basic query
  */
-class M_merk extends CI_Model
+class M_product extends CI_Model
 {
     /**
      * The constructor of M_general 
@@ -14,7 +14,7 @@ class M_merk extends CI_Model
         parent::__construct();
     }
 
-    function get_master_merk($params = array())
+    function get_master_product($params = array())
     {
         if(!empty($params['id']))
             $this->db->where('id', $params['id']);
@@ -28,7 +28,7 @@ class M_merk extends CI_Model
             $this->db->like('updated_at', $params['updated_at']);
 
         $this->db->select('*');
-        $this->db->from('merk');
+        $this->db->from('product');
         $query = $this->db->get();
 
         if(!empty($params['id']))
@@ -37,13 +37,13 @@ class M_merk extends CI_Model
             return $query->result();
     }
 
-    function merk()
+    function product()
     {
-        $buffer = array('' => '- pilih Merk-');
+        $buffer = array('' => '- pilih product-');
 
         // Select record
         $this->db->select('id, nama');
-        $query = $this->db->get('merk')->result();
+        $query = $this->db->get('product')->result();
 
         foreach($query as $q) {
             $buffer[$q->id] = $q->nama;
