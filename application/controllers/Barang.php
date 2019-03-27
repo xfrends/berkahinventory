@@ -16,7 +16,9 @@ class Barang extends CI_Controller
 		$this->load->model(array (
 			'm_general',
             'm_barang',
-            'm_category'
+            'm_category',
+            'm_merk',
+            'm_product'
 		));
 	}	
 
@@ -24,6 +26,8 @@ class Barang extends CI_Controller
         // $this->acl->validate_read();
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
 
         if($this->input->post('submit')) {
             unset($_POST['submit']);
@@ -53,6 +57,8 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
         echo $this->load->view('dashboard/barang/add', $data, TRUE);
         die();
     }
@@ -74,6 +80,8 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
         $data['records'] = $this->m_barang->get_master_barang(array('id' => $id));
         echo $this->load->view('dashboard/barang/edit', $data, TRUE);
         die();
@@ -90,6 +98,7 @@ class Barang extends CI_Controller
         // $this->acl->validate_read();
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
 
         if($this->input->post('submit')) {
             unset($_POST['submit']);
@@ -119,6 +128,7 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
         echo $this->load->view('dashboard/barang_masuk/add', $data, TRUE);
         die();
     }
@@ -140,6 +150,7 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
         $data['records'] = $this->m_barang->get_master_barang_masuk(array('id' => $id));
         echo $this->load->view('dashboard/barang_masuk/edit', $data, TRUE);
         die();
@@ -184,6 +195,7 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
         echo $this->load->view('dashboard/barang_keluar/add', $data, TRUE);
         die();
     }
@@ -206,6 +218,7 @@ class Barang extends CI_Controller
         $data = array();
         $data['records'] = $this->m_barang->get_master_barang_keluar(array('id' => $id));
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
         echo $this->load->view('dashboard/barang_keluar/edit', $data, TRUE);
         die();
     }
