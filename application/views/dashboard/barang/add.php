@@ -6,6 +6,18 @@
             </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
+            <label class="control-label">Merk<span class="required">*</span></label>
+            <div class="dropdown">
+                <?php echo form_dropdown('merk_id', $merk,null, 'class="form-control" required="required"'); ?>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <label class="control-label">Product<span class="required">*</span></label>
+            <div class="dropdown">
+                <?php echo form_dropdown('product_id', $product,null, 'class="form-control" required="required"'); ?>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
             <label class="control-label">Nama Barang<span class="required">*</span></label>
             <input type="text" class="form-control" name="name" required="required">
         </div>
