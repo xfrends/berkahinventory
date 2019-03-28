@@ -22,17 +22,21 @@
         <input type="text" class="form-control" name="name" value="<?php echo $records->nama_barang ?>" required="required">
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Harga<span class="required">*</span></label>
+        <input type="text" class="form-control" name="harga" value="<?php echo $records->harga ?>" required="required">
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
         <label class="control-label">Kode Barang<span class="required">*</span></label>
         <input type="text" class="form-control" name="kode_barang" value="<?php echo $records->kode_barang ?>" required="required">
     </div>
-    <div class="col-md-12 col-sm-12 col-xs-12">
+    <!-- <div class="col-md-12 col-sm-12 col-xs-12">
         <label class="control-label">Stock Masuk<span class="required">*</span></label>
         <input type="text" class="form-control" name="stock_masuk" value="<?php echo $records->stock_masuk ?>" required="required">
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <label class="control-label">Stock Masuk<span class="required">*</span></label>
         <input type="text" class="form-control" name="stock_keluar" value="<?php echo $records->stock_keluar ?>" required="required">
-    </div>
+    </div> -->
     <div class="clearfix"></div>
     <div class="ln_solid"></div>
     <div class="form-group">

@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th class="no-order" width="40px">#</th>
-            <th>Kode Barang</th>
+            <th>Id Barang</th>
             <th>Nama Barang</th>
             <th>Jumlah</th>
             <th>Keterangan</th>
@@ -18,7 +18,7 @@
     
         <tr>
             <td><?php echo $ir+1 ?></td>
-            <td><?php echo $r->kode_barang ?></td>
+            <td><?php echo $r->barang_id ?></td>
             <td><?php echo $r->nama_barang ?></td>
             <td><?php echo $r->jumlah ?></td>
             <td><?php echo $r->keterangan_barang ?></td>

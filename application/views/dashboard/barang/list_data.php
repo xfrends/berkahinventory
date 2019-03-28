@@ -3,6 +3,7 @@
         <tr>
             <th class="no-order" width="40px">#</th>
             <th>Nama Barang</th>
+            <th>Harga</th>
             <th>kode Barang</th>
             <th>Jumlah Stock</th>
             <th>Category</th>
@@ -20,6 +21,7 @@
         <tr>
             <td><?php echo $ir+1 ?></td>
             <td><?php echo $r->nama_barang ?></td>
+            <td><?php echo $r->harga ?></td>
             <td><?php echo $r->kode_barang ?></td>
             <td><?php echo $a-$b ?></td>
             <td><?php echo $r->category_name ?></td>

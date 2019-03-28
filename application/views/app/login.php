@@ -13,18 +13,18 @@
                 </div>
                 <div>
                     <button type="submit" class="btn btn-default">Log in</button>
-                    <a class="reset_pass" href="#">Lost your password?</a>
+                    <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
                 </div>
                 <div class="clearfix"></div>
                 <div class="separator">
-                    <p class="change_link">New to site?
-                    <a href="#signup" class="to_register"> Create Account </a>
-                    </p>
+                    <!-- <p class="change_link">New to site?
+                        <a href="#signup" class="to_register"> Create Account </a>
+                    </p> -->
                     <div class="clearfix"></div>
                         <br />
                         <div>
-                        <h1><i class="fa fa-paw"></i> Berkah Inventory</h1>
-                        <p>©2016 All Rights Reserved. Berkah Inventory</p>
+                        <h1><i class="glyphicon glyphicon-bishop"></i> Berkah Inventory</h1>
+                        <p>©2019 All Rights Reserved.</p>
                     </div>
                 </div>
             </form>

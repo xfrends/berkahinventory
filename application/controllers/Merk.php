@@ -20,6 +20,11 @@ class Merk extends CI_Controller
     }	
 
 	function index() {
+        //take them back to signin
+        $session = $this->session->userdata('user_info');
+        if(empty($session)){            
+            redirect(base_url('app/login'),'refresh');
+        }
         // $this->acl->validate_read();
         $data = array();
 
