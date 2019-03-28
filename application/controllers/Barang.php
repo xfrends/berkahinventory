@@ -13,17 +13,28 @@ class Barang extends CI_Controller
 		// $this->template->set_template('webcring');
 		LOAD_NAVBAR('Master Barang');
 
+        $this->load->library('session');
+
 		$this->load->model(array (
 			'm_general',
             'm_barang',
-            'm_category'
+            'm_category',
+            'm_merk',
+            'm_product'
 		));
-	}	
+    }
 
 	function index() {
+        //take them back to signin
+        $session = $this->session->userdata('user_info');
+        if(empty($session)){            
+            redirect(base_url('app/login'),'refresh');
+        }
         // $this->acl->validate_read();
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
 
         if($this->input->post('submit')) {
             unset($_POST['submit']);
@@ -53,6 +64,8 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
         echo $this->load->view('dashboard/barang/add', $data, TRUE);
         die();
     }
@@ -74,6 +87,8 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
         $data['records'] = $this->m_barang->get_master_barang(array('id' => $id));
         echo $this->load->view('dashboard/barang/edit', $data, TRUE);
         die();
@@ -89,12 +104,11 @@ class Barang extends CI_Controller
     function barang_masuk() {
         // $this->acl->validate_read();
         $data = array();
-        $data['category'] = $this->m_category->category();
 
         if($this->input->post('submit')) {
             unset($_POST['submit']);
+
             $data['records'] = $this->m_barang->get_master_barang_masuk($this->input->post());
-            // die(var_dump($data['records']));
             echo $this->load->view('dashboard/barang_masuk/list_data', $data, TRUE);
             die();
         }
@@ -113,13 +127,36 @@ class Barang extends CI_Controller
             $date = DATE_FORMAT_('now', 'Y-m-d H:i:s');
 
             list($iflag, $imsg) = $this->m_general->insert('barang_masuk', $this->input->post());
-        
+
+            // get jumlah from form input
+            $barang_id = $this->input->post('barang_id');
+            $stock_masuk = $this->input->post('jumlah');
+
+            // get stock masuk from table barang
+            $this->db->where('id', $barang_id);
+            $query = $this->db->get('barang');
+            $stock_awal = $query->result_array();
+            $stock_awal = $stock_awal[0]['stock_masuk'];
+
+            // die(var_dump('awal :'. $stock_awal));
+            // die(var_dump('masuk :'.$stock_masuk));
+
+            // update stock at table barang
+            $jumlah = $stock_masuk + $stock_awal;
+            // die(var_dump('jumlah :'.$jumlah));
+            $this->db->where('id', $barang_id);
+            $this->db->update('barang', array('stock_masuk' => $jumlah));
+            
             JSONRES($iflag, $imsg);
         }
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
+        $data['barang'] = $this->m_barang->barang();
         echo $this->load->view('dashboard/barang_masuk/add', $data, TRUE);
+        
         die();
     }
 
@@ -140,6 +177,8 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
         $data['records'] = $this->m_barang->get_master_barang_masuk(array('id' => $id));
         echo $this->load->view('dashboard/barang_masuk/edit', $data, TRUE);
         die();
@@ -178,12 +217,34 @@ class Barang extends CI_Controller
             $date = DATE_FORMAT_('now', 'Y-m-d H:i:s');
 
             list($iflag, $imsg) = $this->m_general->insert('barang_keluar', $this->input->post());
+
+            // get jumlah from form input
+            $barang_id = $this->input->post('barang_id');
+            $stock_keluar = $this->input->post('jumlah');
+
+            // get stock keluar from table barang
+            $this->db->where('id', $barang_id);
+            $query = $this->db->get('barang');
+            $stock_awal = $query->result_array();
+            $stock_awal = $stock_awal[0]['stock_keluar'];
+
+            // die(var_dump('awal :'. $stock_awal));
+            // die(var_dump('masuk :'.$stock_masuk));
+
+            // update stock at table barang
+            $jumlah = $stock_keluar + $stock_awal;
+            // die(var_dump('jumlah :'.$jumlah));
+            $this->db->where('id', $barang_id);
+            $this->db->update('barang', array('stock_masuk' => $jumlah));
             
             JSONRES($iflag, $imsg);
         }
 
         $data = array();
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
+        $data['barang'] = $this->m_barang->barang();
         echo $this->load->view('dashboard/barang_keluar/add', $data, TRUE);
         die();
     }
@@ -206,6 +267,8 @@ class Barang extends CI_Controller
         $data = array();
         $data['records'] = $this->m_barang->get_master_barang_keluar(array('id' => $id));
         $data['category'] = $this->m_category->category();
+        $data['merk'] = $this->m_merk->merk();
+        $data['product'] = $this->m_product->product();
         echo $this->load->view('dashboard/barang_keluar/edit', $data, TRUE);
         die();
     }

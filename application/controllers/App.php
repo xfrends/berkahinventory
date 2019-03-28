@@ -3,8 +3,8 @@
 * This is App Controller
 */
 class App extends CI_Controller
-{
-    
+{ 
+
     function __construct()
     {
         parent::__construct();
@@ -14,13 +14,24 @@ class App extends CI_Controller
         $this->load->model(array (
             'm_barang'
         ));
+        $this->load->library('session');
     }   
 
     function index() {
+        //take them back to signin
+        $session = $this->session->userdata('user_info');
+        if(empty($session)){            
+            redirect(base_url('app/login'),'refresh');
+        }
         $this->dashboard();
     }
 
     function simple_template() {
+        //take them back to signin
+        $session = $this->session->userdata('user_info');
+        if(empty($session)){            
+            redirect(base_url('app/login'),'refresh');
+        }
         $this->template->set_template('default');
         $this->template->write('header', 'This is Header');
         $this->template->write('title', 'My Simple Template', TRUE);
@@ -30,6 +41,11 @@ class App extends CI_Controller
     }
 
     function dashboard() {
+        //take them back to signin
+        $session = $this->session->userdata('user_info');
+        if(empty($session)){            
+            redirect(base_url('app/login'),'refresh');
+        }
         LOAD_NAVBAR('Dashboard');
         $this->template->write_view('content', 'tes/dashboard', '', true);
 
@@ -63,6 +79,7 @@ class App extends CI_Controller
 
     function login ()
     {
+        $this->session->sess_destroy();
     	$this->template->set_template('simple');
         $this->template->write('header', 'Table Dynamics <small>Some examples</small>', true);  
         $this->template->write_view('content', 'app/login', '', true);
@@ -73,7 +90,7 @@ class App extends CI_Controller
     function akses_login()
     {
         $submit = $this->input->post('submit');
-
+        $this->load->library('session');
         if($submit)
         {
             //encryp password to md5
@@ -85,15 +102,21 @@ class App extends CI_Controller
             
             //lookup user
             $user_data = $this->m_barang->validate_member($login_data);
-
+            
             if (!empty($user_data)) {
-                // //set session value
-                // $this->session->set_userdata('user_info', $user_data);
-                $addon = array('redirect' => base_url('barang'));
-                JSONRES(_SUCCESS, lang('LoginSuccess'), $addon);
+                //set session value
+                $this->session->set_userdata('user_info', '$user_data');
+                $session = $this->session->userdata('user_info');
+                if($session){
+                    $addon = array('redirect' => base_url(''));
+                    JSONRES(_SUCCESS, lang('LoginSuccess'), $addon);
+                }else {
+                    $addon = array('redirect' => base_url('app/login'),'refresh');
+                    JSONRES(_SUCCESS, lang('LoginFailed'), $addon);
+                }     
             }else{
-                $addon = array('redirect' => base_url('app/login'));
-                JSONRES(_SUCCESS, lang('LoginSuccess'), $addon);
+                $addon = array('redirect' => base_url('app/login'),'refresh');
+                JSONRES(_SUCCESS, lang('LoginFailed'), $addon);
             }
         }
     }

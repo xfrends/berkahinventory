@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col menu_fixed">
 	<div class="left_col scroll-view">
  		<div class="navbar nav_title" style="border: 0;">
-			<a href="<?php echo base_url(); ?>" class="site_title"><i class="glyphicon glyphicon-fullscreen"></i>&nbsp;<span style="font-size: 20px;"><?php echo 'Berkah Inventory' ?></span></a>
+			<a href="<?php echo base_url(); ?>" class="site_title"><i class="glyphicon glyphicon-bishop"></i>&nbsp;<span style="font-size: 20px;"><?php echo 'Berkah Inventory' ?></span></a>
 		</div>
 
 		<div class="clearfix"></div>
@@ -31,34 +31,34 @@
 						<ul class="nav child_menu">
 							<li>
 								<a href="<?php echo base_url('category/index') ?>">
-									<i class="fas fa-user"></i>
-									Category
+									<i class="fas fa-user"></i> &nbsp; Category
 								</a>
 							</li>
 							<li>
 								<a href="<?php echo base_url('merk/index') ?>">
-									<i class="fas fa-user"></i>
-									Merk
+									<i class="fas fa-user"></i> &nbsp; Merk									
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url('product/index') ?>">
+									<i class="fas fa-user"></i> &nbsp; Product									
 								</a>
 							</li>
 						</ul>
 					</li>
 					<li>
 						<a href="<?php echo base_url('barang') ?>">
-							<i class="fas fa-user"></i>
-							barang
+							<i class="fas fa-archive"></i> &nbsp; Master Barang							
 						</a>
 					</li>
 					<li>
 						<a href="<?php echo base_url('barang/barang_masuk') ?>">
-							<i class="fas fa-user"></i>
-							Barang Masuk
+							<i class="fas fa-truck"></i> &nbsp; Barang Masuk							
 						</a>
 					</li>
 					<li>
 						<a href="<?php echo base_url('barang/barang_keluar') ?>">
-							<i class="fas fa-user"></i>
-							Barang Keluar
+							<i class="fas fa-cart-arrow-down"></i> &nbsp; Barang Keluar							
 						</a>
 					</li>
 					<!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>

@@ -6,21 +6,37 @@
             </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
+            <label class="control-label">Merk<span class="required">*</span></label>
+            <div class="dropdown">
+                <?php echo form_dropdown('merk_id', $merk,null, 'class="form-control" required="required"'); ?>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <label class="control-label">Product<span class="required">*</span></label>
+            <div class="dropdown">
+                <?php echo form_dropdown('product_id', $product,null, 'class="form-control" required="required"'); ?>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
             <label class="control-label">Nama Barang<span class="required">*</span></label>
             <input type="text" class="form-control" name="name" required="required">
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <label class="control-label">Harga<span class="required">*</span></label>
+            <input type="text" class="form-control" name="harga" required="required">
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <label class="control-label">Kode Barang<span class="required">*</span></label>
             <input type="text" class="form-control" name="kode_barang" required="required">
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
+        <!-- <div class="col-md-12 col-sm-12 col-xs-12">
             <label class="control-label">Stock Masuk<span class="required">*</span></label>
             <input type="text" class="form-control" name="stock_masuk" required="required">
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <label class="control-label">Stock Keluar<span class="required">*</span></label>
             <input type="text" class="form-control" name="stock_keluar" required="required">
-        </div>
+        </div> -->
         <div class="clearfix"></div>
         <div class="ln_solid"></div>
         <div class="form-group">

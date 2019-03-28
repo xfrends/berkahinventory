@@ -1,33 +1,46 @@
 <form id="parsley-form" class="form-horizontal" novalidate name="form_edit">
+
     <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Kode Barang<span class="required">*</span></label>
-            <input type="text" class="form-control" name="kode_barang" value="<?php echo $records->kode_barang ?>" required="required">
+        <label class="control-label">Category<span class="required">*</span></label>
+        <div class="dropdown">
+            <?php echo form_dropdown('category_id', $category,$records->category_id, 'class="form-control" required="required"'); ?>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Nama Barang<span class="required">*</span></label>
-            <input type="text" class="form-control" name="name" value="<?php echo $records->nama_barang ?>" required="required">
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Jumlah<span class="required">*</span></label>
-            <input type="text" class="form-control" name="jumlah" value="<?php echo $records->jumlah ?>" required="required">
-        </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Supplier<span class="required">*</span></label>
-            <input type="text" class="form-control" name="supplier" value="<?php echo $records->supplier ?>" required="required">
-        </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Keterangan<span class="required">*</span></label>
-            <input type="text" class="form-control" name="keterangan" value="<?php echo $records->keterangan ?>" required="required">
-        </div>
-        </div>
+    </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Category<span class="required">*</span></label>
-            <div class="dropdown">
-                <?php echo form_dropdown('id', $category,$records->category_id, 'class="form-control" required="required"'); ?>
-            </div>
+        <label class="control-label">Merk<span class="required">*</span></label>
+        <div class="dropdown">
+            <?php echo form_dropdown('merk_id', $merk,$records->merk_id, 'class="form-control" required="required"'); ?>
         </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Product<span class="required">*</span></label>
+        <div class="dropdown">
+            <?php echo form_dropdown('product_id', $product,$records->product_id, 'class="form-control" required="required"'); ?>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Kode Barang<span class="required">*</span></label>
+        <input type="text" class="form-control" name="kode_barang" value="<?php echo $records->kode_barang ?>" required="required">
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Nama Barang<span class="required">*</span></label>
+        <input type="text" class="form-control" name="name" value="<?php echo $records->nama_barang ?>" required="required">
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Jumlah<span class="required">*</span></label>
+        <input type="text" class="form-control" name="jumlah" value="<?php echo $records->jumlah ?>" required="required">
+    </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Supplier<span class="required">*</span></label>
+        <input type="text" class="form-control" name="supplier" value="<?php echo $records->supplier ?>" required="required">
+    </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">Keterangan<span class="required">*</span></label>
+        <input type="text" class="form-control" name="keterangan" value="<?php echo $records->keterangan_barang ?>" required="required">
+    </div>
+    </div>
     <div class="clearfix"></div>
     <div class="ln_solid"></div>
     <div class="form-group">

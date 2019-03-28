@@ -2,7 +2,7 @@
 /**
 * This is App Controller
 */
-class Merk extends CI_Controller
+class Product extends CI_Controller
 {
 	
 	function __construct()
@@ -15,7 +15,7 @@ class Merk extends CI_Controller
 
 		$this->load->model(array (
 			'm_general',
-			'm_merk'
+			'm_product'
 		));
     }	
 
@@ -30,13 +30,13 @@ class Merk extends CI_Controller
 
         if($this->input->post('submit')) {
             unset($_POST['submit']);
-            $data['records'] = $this->m_merk->get_master_merk($this->input->post());
+            $data['records'] = $this->m_product->get_master_product($this->input->post());
             // die(var_dump($data['records']));
-            echo $this->load->view('dashboard/merk/list_data', $data, TRUE);
+            echo $this->load->view('dashboard/product/list_data', $data, TRUE);
             die();
         }
 
-        $this->template->write_view('content', 'dashboard/merk/list', $data, true);
+        $this->template->write_view('content', 'dashboard/product/list', $data, true);
         $this->template->render();
     }
 
@@ -49,13 +49,13 @@ class Merk extends CI_Controller
             $_POST['created_at'] = FORMAT_DATE_($this->input->post('date'));
             $date = DATE_FORMAT_('now', 'Y-m-d H:i:s');
 
-            list($iflag, $imsg) = $this->m_general->insert('merk', $this->input->post());
+            list($iflag, $imsg) = $this->m_general->insert('product', $this->input->post());
 
             JSONRES($iflag, $imsg);
         }
 
         $data = array();
-        echo $this->load->view('dashboard/merk/add', $data, TRUE);
+        echo $this->load->view('dashboard/product/add', $data, TRUE);
         die();
     }
 
@@ -69,20 +69,20 @@ class Merk extends CI_Controller
             $_POST['updated_at'] = FORMAT_DATE_($this->input->post('date'));
             $date = DATE_FORMAT_('now', 'Y-m-d H:i:s');
 
-            list($uflag, $umsg) = $this->m_general->update('merk', $this->input->post(), array('id' => $id));
+            list($uflag, $umsg) = $this->m_general->update('product', $this->input->post(), array('id' => $id));
 
             JSONRES($uflag, $umsg);
         }
 
         $data = array();
-        $data['records'] = $this->m_merk->get_master_merk(array('id' => $id));
-        echo $this->load->view('dashboard/merk/edit', $data, TRUE);
+        $data['records'] = $this->m_product->get_master_product(array('id' => $id));
+        echo $this->load->view('dashboard/product/edit', $data, TRUE);
         die();
     }
 
     function delete($id) {
         // $this->acl->validate_delete();
-        list($dflag, $dmsg) = $this->m_general->delete('merk', array('id' => $id));
+        list($dflag, $dmsg) = $this->m_general->delete('product', array('id' => $id));
 
         JSONRES($dflag, $dmsg);
     }
