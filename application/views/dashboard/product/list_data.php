@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th class="no-order" width="40px">#</th>
-            <th>Nama product</th>
+            <th>Nama satuan</th>
             <th>Keterangan</th>
             <th>Created at</th>
             <th>Update at</th>
