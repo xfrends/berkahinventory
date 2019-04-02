@@ -34,7 +34,7 @@
         <input type="text" class="form-control" name="stock_masuk" value="<?php echo $records->stock_masuk ?>" required="required">
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
-        <label class="control-label">Stock Masuk<span class="required">*</span></label>
+        <label class="control-label">Stock Keluar<span class="required">*</span></label>
         <input type="text" class="form-control" name="stock_keluar" value="<?php echo $records->stock_keluar ?>" required="required">
     </div> -->
     <div class="clearfix"></div>
