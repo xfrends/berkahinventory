@@ -176,9 +176,8 @@ class Barang extends CI_Controller
         }
 
         $data = array();
-        $data['category'] = $this->m_category->category();
-        $data['merk'] = $this->m_merk->merk();
-        $data['product'] = $this->m_product->product();
+        $data['product'] = $this->m_barang->barang();
+        // die(var_dump($data['product']));
         $data['records'] = $this->m_barang->get_master_barang_masuk(array('id' => $id));
         echo $this->load->view('dashboard/barang_masuk/edit', $data, TRUE);
         die();
@@ -235,7 +234,7 @@ class Barang extends CI_Controller
             $jumlah = $stock_keluar + $stock_awal;
             // die(var_dump('jumlah :'.$jumlah));
             $this->db->where('id', $barang_id);
-            $this->db->update('barang', array('stock_masuk' => $jumlah));
+            $this->db->update('barang', array('stock_keluar' => $jumlah));
             
             JSONRES($iflag, $imsg);
         }
@@ -266,9 +265,7 @@ class Barang extends CI_Controller
 
         $data = array();
         $data['records'] = $this->m_barang->get_master_barang_keluar(array('id' => $id));
-        $data['category'] = $this->m_category->category();
-        $data['merk'] = $this->m_merk->merk();
-        $data['product'] = $this->m_product->product();
+        $data['product'] = $this->m_barang->barang();
         echo $this->load->view('dashboard/barang_keluar/edit', $data, TRUE);
         die();
     }
