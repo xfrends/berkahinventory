@@ -41,7 +41,7 @@
 							</li>
 							<li>
 								<a href="<?php echo base_url('product/index') ?>">
-									<i class="fas fa-user"></i> &nbsp; Product									
+									<i class="fas fa-user"></i> &nbsp; satuan									
 								</a>
 							</li>
 						</ul>

@@ -8,7 +8,7 @@
             <div class="x_content">
                 <form name="search" class="form-horizontal form-label-left">
                     <div class="form-group">
-                        <label class="control-label col-sm-3 col-xs-12">Nama product</label>
+                        <label class="control-label col-sm-3 col-xs-12">Nama satuan</label>
                         <div class="col-sm-6 col-xs-12">
                             <input type="text" class="form-control col-xs-12" name="name" id="search">
                         </div>
