@@ -1,6 +1,6 @@
 <form id="parsley-form" action="" class="form-horizontal" novalidate name="form_add">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Nama Merk<span class="required">*</span></label>
+            <label class="control-label">Nama Satuan<span class="required">*</span></label>
             <input type="text" class="form-control" name="nama" required="required">
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">

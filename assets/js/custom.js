@@ -346,7 +346,7 @@ if (typeof NProgress != 'undefined') {
         
         if( typeof ($.plot) === 'undefined'){ return; }
         
-        // console.log('init_flot_chart');
+        console.log('init_flot_chart');
         
         
         
@@ -421,7 +421,7 @@ if (typeof NProgress != 'undefined') {
         var chart_plot_01_settings = {
           series: {
             lines: {
-              show: false,
+              show: true,
               fill: true
             },
             splines: {
@@ -449,7 +449,7 @@ if (typeof NProgress != 'undefined') {
             tickColor: "rgba(51, 51, 51, 0.06)",
             mode: "time",
             tickSize: [1, "day"],
-            //tickLength: 10,
+            tickLength: 10,
             axisLabel: "Date",
             axisLabelUseCanvas: true,
             axisLabelFontSizePixels: 12,
@@ -460,7 +460,7 @@ if (typeof NProgress != 'undefined') {
             ticks: 8,
             tickColor: "rgba(51, 51, 51, 0.06)",
           },
-          tooltip: false
+          tooltip: true
         }
         
         var chart_plot_02_settings = {

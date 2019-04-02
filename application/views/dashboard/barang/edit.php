@@ -12,9 +12,9 @@
         </div>
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
-        <label class="control-label">Product<span class="required">*</span></label>
+        <label class="control-label">Satuan<span class="required">*</span></label>
         <div class="dropdown">
-            <?php echo form_dropdown('product_id', $product,$records->product_id, 'class="form-control" required="required"'); ?>
+            <?php echo form_dropdown('satuan_id', $product,$records->satuan_id, 'class="form-control" required="required"'); ?>
         </div>
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -34,7 +34,7 @@
         <input type="text" class="form-control" name="stock_masuk" value="<?php echo $records->stock_masuk ?>" required="required">
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
-        <label class="control-label">Stock Masuk<span class="required">*</span></label>
+        <label class="control-label">Stock Keluar<span class="required">*</span></label>
         <input type="text" class="form-control" name="stock_keluar" value="<?php echo $records->stock_keluar ?>" required="required">
     </div> -->
     <div class="clearfix"></div>

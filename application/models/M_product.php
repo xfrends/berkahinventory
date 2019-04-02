@@ -28,7 +28,7 @@ class M_product extends CI_Model
             $this->db->like('updated_at', $params['updated_at']);
 
         $this->db->select('*');
-        $this->db->from('product');
+        $this->db->from('satuan');
         $query = $this->db->get();
 
         if(!empty($params['id']))
@@ -39,11 +39,11 @@ class M_product extends CI_Model
 
     function product()
     {
-        $buffer = array('' => '- pilih product-');
+        $buffer = array('' => '- pilih satuan-');
 
         // Select record
         $this->db->select('id, nama');
-        $query = $this->db->get('product')->result();
+        $query = $this->db->get('satuan')->result();
 
         foreach($query as $q) {
             $buffer[$q->id] = $q->nama;

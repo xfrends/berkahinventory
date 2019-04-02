@@ -12,9 +12,9 @@
             </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <label class="control-label">Product<span class="required">*</span></label>
+            <label class="control-label">Satuan<span class="required">*</span></label>
             <div class="dropdown">
-                <?php echo form_dropdown('product_id', $product,null, 'class="form-control" required="required"'); ?>
+                <?php echo form_dropdown('satuan_id', $product,null, 'class="form-control" required="required"'); ?>
             </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">

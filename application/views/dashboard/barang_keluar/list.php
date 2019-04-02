@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3 col-xs-12">Kode Barang</label>
                         <div class="col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-xs-12" name="kode_barang" id="search">
+                            <input type="text" class="form-control col-xs-12" name="barang_id" id="search">
                         </div>
                     </div>
                     <div class="clearfix"></div>

@@ -93,13 +93,13 @@ $template['active_template'] = 'default';
 
 $template['default']['template'] = 'template/default_template.php';
 $template['default']['regions'] = array(
-   'title' => array('content' => array('Ajhoel Tragedy Template')),
+   'title' => array('content' => array('Berkah Inventory')),
    'header',
    'navs',
    'sidenavs',
    'content',
    'footer' => array(
-        'content' => array('Ajhoel Tragedy &copy;2017'),
+        'content' => array('Berkah Inventory &copy;2019'),
     ),
 );
 
@@ -109,13 +109,13 @@ $template['default']['parse_template'] = FALSE;
 
 $template['simple']['template'] = 'template/simple_template.php';
 $template['simple']['regions'] = array(
-   'title' => array('content' => array('Ajhoel Tragedy Template')),
+   'title' => array('content' => array('Berkah Inventory')),
    'header',
    'navs',
    'sidenavs',
    'content',
    'footer' => array(
-        'content' => array('Ajhoel Tragedy &copy;2017'),
+        'content' => array('Berkah Inventory &copy;2019'),
     ),
 );
 
