@@ -89,8 +89,8 @@ class M_barang extends CI_Model
     {
         if(!empty($params['id']))
             $this->db->where('m.id', $params['id']);
-        if(!empty($params['kode_barang']))
-            $this->db->like('kode_barang', $params['kode_barang']);
+        if(!empty($params['barang_id']))
+            $this->db->like('barang_id', $params['barang_id']);
         if(!empty($params['supplier']))
             $this->db->like('supplier', $params['supplier']);
         if(!empty($params['jumlah']))
@@ -117,6 +117,8 @@ class M_barang extends CI_Model
     {
         if(!empty($params['id']))
             $this->db->where('m.id', $params['id']);
+        if(!empty($params['barang_id']))
+            $this->db->like('barang_id', $params['barang_id']);
         if(!empty($params['jumlah']))
             $this->db->like('jumlah', $params['jumlah']);
         if(!empty($params[' keterangan']))
