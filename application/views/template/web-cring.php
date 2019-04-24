@@ -26,7 +26,7 @@
     <script src="<?php echo base_url('vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js') ?>" type="text/javascript"></script>
 
     <!-- Chart.js -->
-    <script src="<?php echo base_url('vendors/Chart.js/dist/Chart.min.js') ?>" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" type="text/javascript"></script>
 
     <!-- cropper -->
     <script src="<?php echo base_url('vendors/cropper/dist/cropper.min.js') ?>" type="text/javascript"></script>

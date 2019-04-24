@@ -14,6 +14,9 @@ class App extends CI_Controller
         $this->load->model(array (
             'm_barang'
         ));
+        $this->load->model(array (
+            'm_dashboard'
+        ));
         $this->load->library('session');
     }   
 
@@ -47,7 +50,13 @@ class App extends CI_Controller
             redirect(base_url('app/login'),'refresh');
         }
         LOAD_NAVBAR('Dashboard');
-        $this->template->write_view('content', 'tes/dashboard', '', true);
+
+        $data['barang']=$this->m_dashboard->get_data_stok();
+        $data['masuk'] = $this->m_barang->get_master_barang_masuk($this->input->post());
+        $data['keluar'] = $this->m_barang->get_master_barang_keluar($this->input->post());
+        // $this->load->view('tes/dashboards',$x);
+
+        $this->template->write_view('content', 'tes/dashboard', $data, true);
 
         $this->template->render();
     }

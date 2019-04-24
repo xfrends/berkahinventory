@@ -39,7 +39,7 @@ class M_product extends CI_Model
 
     function product()
     {
-        $buffer = array('' => '- pilih product-');
+        $buffer = array('' => '- pilih satuan-');
 
         // Select record
         $this->db->select('id, nama');
